@@ -187,6 +187,103 @@ downloadButton.addEventListener('click', ()=>{
 })
 // ===== end about popup ===== //
 
+// ===== LANGUAGES ===== //
+const navLanguages = document.querySelector('.nav__languages'),
+		languageButton = document.querySelectorAll('.language__button');
+
+// 1. Home
+const homeTitle1 = document.querySelector('.home__title-1'),
+		homeTitle2 = document.querySelector('.home__title-2'),
+		homeTitle3 = document.querySelector('.home__title-3'),
+		homeTitle4 = document.querySelector('.home__title-4');
+
+// 2. About
+const aboutDescription1 = document.querySelector('.about__description-1'),
+		aboutDescription2 = document.querySelector('.about__description-2'),
+		aboutDescription3 = document.querySelector('.about__description-3');
+
+// 3. About popup
+const aboutPopupDescription = document.querySelector('.about__popup-description');
+
+// 4. Footer
+const contactDescription = document.querySelector('.contact__description');
+
+languageButton.forEach(el =>{
+	el.addEventListener('click', ()=>{
+		navLanguages.querySelector('.active-language').classList.remove('active-language');
+		el.classList.add('active-language');
+
+		const attr = el.getAttribute('language');
+
+		// 1. Home
+		homeTitle1.textContent = data[attr].home__title1;
+		homeTitle2.textContent = data[attr].home__title2;
+		homeTitle3.textContent = data[attr].home__title3;
+		homeTitle4.textContent = data[attr].home__title4;
+
+		// 2. About
+		aboutDescription1.textContent = data[attr].about__description1;
+		aboutDescription2.textContent = data[attr].about__description2;
+		aboutDescription3.textContent = data[attr].about__description3;
+
+		// 3. About popup
+		aboutPopupDescription.textContent = data[attr].about__popupdescription;
+
+		// 4. Footer
+		contactDescription.textContent = data[attr].contact__description;
+	});
+});
+
+var data = {
+	// ENGLISH //
+	"english":{
+		// 1. Home
+		"home__title1" : "Custom design websites",
+		"home__title2" : "& affordable prices",
+		"home__title3" : "for individuals",
+		"home__title4" : "& small businesses.",
+
+		// 2. About
+		"about__description1" : "Hey! My name is Nelly Yusnita. I'm a Freelance Junior Front-end Developer based in Indonesia. I love working on fun little 	projects especially for individuals and small businesses during my free time.",
+
+		"about__description2" : "I provide custom designs at affordable prices. Frequently your website is the first impression your customers will get, so make sure it’s a good one. Since my time is split between a few different things, I’m not able to take on every project I’d like to, but I'm always looking for fun work.",
+
+		"about__description3" : "Take a look at my portfolio below, if you think I'd be a good match send me an email or message on my social media.",
+
+		// 3. About popup
+		"about__popupdescription" : "I'm sorry, my resume still not available.",
+
+		// 4. Footer
+		"contact__description" : "If you have a project that you want to carry out, do not hesitate and tell me what it is, my inbox is always open. Whether you have a question or just want to say hi, I’ll try my best to get back to you."
+
+	},
+	// end english //
+
+	// INDONESIA //
+	"indonesia":{
+		// 1. Home
+		"home__title1" : "Desain kustom website",
+		"home__title2" : "& harga terjangkau",
+		"home__title3" : "untuk individu",
+		"home__title4" : "& bisnis kecil.",
+
+		// 2. About
+		"about__description1" : "Hai, nama saya Nelly Yusnita. Saya seorang freelance Front-end Developer dari Indonesia. Saya suka mengerjakan proyek kecil yang menyenangkan terutama untuk individu dan bisnis kecil di waktu luang saya.",
+
+		"about__description2" : "Saya menyediakan desain khusus dengan harga terjangkau. Seringkali website Anda adalah kesan pertama yang akan didapatkan pelanggan Anda, jadi pastikan Anda punya website yang bagus. Karena waktu saya terbagi antara beberapa hal yang berbeda, saya tidak dapat mengerjakan setiap proyek yang saya inginkan, tetapi saya selalu mencari pekerjaan yang menyenangkan.",
+
+		"about__description3" : "Lihatlah portofolio saya di bawah ini, jika menurut Anda saya cocok, kirimkan saya email atau pesan di media sosial saya.",
+
+		// 3. About popup
+		"about__popupdescription" : "Maaf, Resume saya belum tersedia.",
+
+		// 4. Footer
+		"contact__description" : "Jika Anda memiliki proyek yang ingin Anda laksanakan, jangan ragu dan beri tahu saya apa itu, kotak masuk saya selalu terbuka. Apakah Anda memiliki pertanyaan atau hanya ingin menyapa, saya akan mencoba yang terbaik untuk menghubungi Anda kembali."
+	}
+	// end indonesia //
+}
+// ===== end languages ===== //
+
 // ===== SCROLL REVEAL ANIMATION ===== //
 const sr = ScrollReveal({
 	origin: 'top',
