@@ -91,7 +91,8 @@ themeButton.addEventListener('click', () => {
 const modalViews = document.querySelectorAll('.portfolio__modal'),
 		modalBtns = document.querySelectorAll('.portfolio__button'),
 		modalClose = document.querySelectorAll('.portfolio__modal-close'),
-		portfolioButtonLink = document.querySelectorAll('.portfolio__button-link');
+		portfolioButtonLink = document.querySelectorAll('.portfolio__button-link'),
+		viewLink = document.querySelectorAll('.view__link');
 
 let modal = function(modalClick){
 	modalViews[modalClick].classList.add('active-modal');
@@ -100,6 +101,14 @@ let modal = function(modalClick){
 modalBtns.forEach((mb,i)=>{
 	mb.addEventListener('click', ()=>{
 		modal(i)
+	})
+})
+
+viewLink.forEach((vc) =>{
+	vc.addEventListener('click', ()=>{
+		modalViews.forEach((mv) =>{
+			mv.classList.remove('active-modal')
+		})
 	})
 })
 
@@ -205,7 +214,7 @@ const aboutDescription1 = document.querySelector('.about__description-1'),
 // 3. About popup
 const aboutPopupDescription = document.querySelector('.about__popup-description');
 
-// 4. Footer
+// 4. Contact
 const contactDescription = document.querySelector('.contact__description');
 
 languageButton.forEach(el =>{
@@ -229,7 +238,7 @@ languageButton.forEach(el =>{
 		// 3. About popup
 		aboutPopupDescription.textContent = data[attr].about__popupdescription;
 
-		// 4. Footer
+		// 4. Contact
 		contactDescription.textContent = data[attr].contact__description;
 	});
 });
@@ -253,7 +262,7 @@ var data = {
 		// 3. About popup
 		"about__popupdescription" : "I'm sorry, my resume still not available.",
 
-		// 4. Footer
+		// 4. Contact
 		"contact__description" : "If you have a project that you want to carry out, do not hesitate and tell me what it is, my inbox is always open. Whether you have a question or just want to say hi, I’ll try my best to get back to you."
 
 	},
@@ -277,7 +286,7 @@ var data = {
 		// 3. About popup
 		"about__popupdescription" : "Maaf, Resume saya belum tersedia.",
 
-		// 4. Footer
+		// 4. Contact
 		"contact__description" : "Jika Anda memiliki proyek yang ingin Anda laksanakan, jangan ragu dan beri tahu saya apa itu, kotak masuk saya selalu terbuka. Apakah Anda memiliki pertanyaan atau hanya ingin menyapa, saya akan mencoba yang terbaik untuk menghubungi Anda kembali."
 	}
 	// end indonesia //
@@ -293,9 +302,9 @@ const sr = ScrollReveal({
 	// reset: true// animation repeat //
 })
 
-sr.reveal(`.home__container, .about__blob-box, .contact__content:nth-child(1)`, {origin: 'left'})
-sr.reveal(`.section__title, .contact__description, .footer__container`)
+sr.reveal(`.home__container, .about__content:nth-child(1), .contact__content:nth-child(1)`, {origin: 'left'})
+sr.reveal(`.section__title, .contact__description`)
 sr.reveal(`.section__subtitle`, {delay: 100})
-sr.reveal(`.about__content, .contact__content:nth-child(2)`, {origin: 'right'})
+sr.reveal(`.about__content:nth-child(2), .contact__content:nth-child(2)`, {origin: 'right'})
 sr.reveal(`.skills__data`, {delay: 100, interval: 100})
 // ===== end scroll reveal animation ===== //

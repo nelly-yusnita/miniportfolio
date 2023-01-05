@@ -135,8 +135,6 @@ body.dark-theme{
    --body-color: hsl(207, 40%, 8%);
    --container-color: hsl(207, 4%, 12%);
 }
-.dark-theme .about__shape-waves,
-.dark-theme .about__shape-circle,
 .dark-theme .skills__circle-img,
 .dark-theme .contact__circle-img{
    filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="table" tableValues="1 0" /><feFuncG type="table" tableValues="1 0" /><feFuncB type="table" tableValues="1 0" /></feComponentTransfer></filter></svg>#filter');
@@ -362,22 +360,27 @@ body.dark-theme{
    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
    z-index: -1;
 }
-.custom-shape-divider-bottom-1672137171{
+
+/* Custom Shape */
+.custom-shape-divider-bottom-1672939476{
    position: absolute;
    bottom: 0;
    left: 0;
    width: 100%;
    overflow: hidden;
    line-height: 0;
-   transform: rotate(180deg);
+   -webkit-transform: rotate(180deg);
+           transform: rotate(180deg);
 }
-.custom-shape-divider-bottom-1672137171 svg{
+.custom-shape-divider-bottom-1672939476 svg{
    position: relative;
    display: block;
    width: calc(100% + 1.3px);
-   height: 55px;
+   height: 80px;
+   -webkit-transform: rotateY(180deg);
+           transform: rotateY(180deg);
 }
-.custom-shape-divider-bottom-1672137171 .shape-fill{
+.custom-shape-divider-bottom-1672939476 .shape-fill{
    fill: var(--body-color);
 }
 /* ===== end home ===== */
@@ -421,52 +424,41 @@ body.dark-theme{
 /* ===== end buttons ===== */
 
 /* ===== ABOUT ==== */
-/*.about{
-   padding-top: 5rem;
-}*/
+.about .section__subtitle{
+   margin-bottom: 7rem;
+}
 .about__container{
-   grid-row-gap: 2.75rem;
+   grid-row-gap: 2rem;
 }
-.about__blob{
+.about__images{
    position: relative;
-   width: 220px;
-   margin: 0 auto 1.5rem;
+   margin-bottom: 1.25rem;
 }
-.profile__img{
-   border-radius: 10rem 10rem 1rem 1rem;
+.about__img,
+.about__square{
+   width: 250px;
 }
-.about__shape-waves,
-.about__shape-circle{
+.about__img{
    position: absolute;
-   opacity: .1;
-   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
+   left: 3rem;
+   top: -3rem;
+   height: 250px;
+   -o-object-fit: cover;
+      object-fit: cover;
+   -o-object-position: left;
+      object-position: left;
 }
-.about__shape-waves{
-   width: 50px;
-   left: -1.5rem;
-   top: 8.5rem;
-}
-.about__shape-circle{
-   width: 150px;
-   bottom: -2rem;
-   right: -3rem;
-   -webkit-transform: rotate(15deg);
-           transform: rotate(15deg);
-   z-index: -1;
+.about__square{
+   height: 250px;
+   background-color: var(--blue-color);
 }
 .about__social{
    display: -webkit-box;
    display: -ms-flexbox;
    display: flex;
-   -webkit-box-pack: center;
-       -ms-flex-pack: center;
-           justify-content: center;
    -webkit-box-align: center;
        -ms-flex-align: center;
            align-items: center;
-}
-.about__social-link i{
-   font-size: 1.25rem;
 }
 .about__social-link{
    display: -webkit-inline-box;
@@ -479,11 +471,14 @@ body.dark-theme{
    -webkit-transition: background-color .3s;
    transition: background-color .3s;
 }
-.about__social-link:not(:last-child){
-   margin-right: 1rem;
-}
 .about__social-link:hover{
    background-color: hsl(207, 8%, 75%);
+}
+.about__social-link i{
+   font-size: 1.25rem;
+}
+.about__social-link:not(:last-child){
+   margin-right: 1rem;
 }
 .about__data{
    display: -ms-grid;
@@ -837,54 +832,13 @@ body.dark-theme{
 /* ===== end contact ===== */
 
 /* ===== FOOTER ===== */
-.footer__container{
-   padding: 3rem 0 7rem;
+.footer{
+   padding: 3rem 0;
    text-align: center;
-}
-.footer__title{
-   font-size: var(--h1-font-size);
-   font-weight: var(--font-semi-bold);
-   margin-bottom: 1rem;
-}
-.footer__list,
-.footer__social{
-   display: -webkit-box;
-   display: -ms-flexbox;
-   display: flex;
-   -webkit-box-pack: center;
-       -ms-flex-pack: center;
-           justify-content: center;
-}
-.footer__list{
-   margin: 2.5rem 0;
-}
-.footer__list li:not(:last-child){
-   margin-right: 2.5rem;
-}
-.footer__link{
-   color: var(--title-color);
-}
-.footer__link:hover{
-   text-decoration: underline;
-}
-.footer__social-link:not(:last-child){
-   margin-right: 1.25rem;
-}
-.footer__social-link{
-   font-size: 1.25rem;
-   color: var(--title-color);
-   -webkit-transition: -webkit-transform .3s;
-   transition: -webkit-transform .3s;
-   transition: transform .3s;
-   transition: transform .3s, -webkit-transform .3s;
-}
-.footer__social-link:hover{
-   -webkit-transform: translateY(-.15rem);
-           transform: translateY(-.15rem);
+   margin-bottom: 5rem;
 }
 .footer__copy{
    display: block;
-   margin-top: 4.5rem;
    font-size: var(--smaller-font-size);
    color: var(--text-color-light);
 }
@@ -979,6 +933,14 @@ body.dark-theme{
    }
    /* ===== end nav ===== */
 
+   /* ===== ABOUT ===== */
+   .about__square,
+   .about__img{
+      width: 180px;
+      height: 180px;
+   }
+   /* ===== end about ===== */
+
    /* ===== SKILLS ===== */
    .skills__content{
       -ms-grid-columns: (1fr)[2];
@@ -1041,36 +1003,24 @@ body.dark-theme{
    .home__data h1{
       font-size: 2rem;
    }
-   .custom-shape-divider-bottom-1672137171 svg{
+
+   /* Custom Shape */
+   .custom-shape-divider-bottom-1672939476 svg{
       height: 100px;
    }
    /* ===== end home ===== */
 
    /* ===== ABOUT ===== */
+   .about .section__subtitle{
+      margin-bottom: 3rem;
+   }
    .about__container{
-      -ms-grid-columns: (auto)[2];
-          grid-template-columns: repeat(2, auto);
-      grid-column-gap: 3rem;
+      -ms-grid-columns: (1fr)[2];
+          grid-template-columns: repeat(2, 1fr);
       -webkit-box-align: center;
           -ms-flex-align: center;
                   -ms-grid-row-align: center;
               align-items: center;
-   }
-   .about__blob{
-      width: 250px;
-   }
-   .about__shape-waves{
-      width: 70px;
-      left: -2.25rem;
-      top: 10rem;
-   }
-   .about__shape-circle{
-      width: 170px;
-      bottom: -2.5rem;
-      right: -3.5rem;
-   }
-   .about__social-link i{
-      font-size: 1.5rem;
    }
    /* ===== end about ===== */
 
@@ -1106,21 +1056,16 @@ body.dark-theme{
    /* ===== end home ===== */
 
    /* ===== ABOUT ===== */
+   .about .section__subtitle{
+      margin-bottom: 7rem;
+   }
    .about__container{
-      grid-column-gap: 4rem;
+      grid-column-gap: 8rem;
    }
-   .about__blob{
-      width: 300px;
-   }
-   .about__shape-waves{
-      width: 80px;
-      left: -2.5rem;
-      top: 12rem;
-   }
-   .about__shape-circle{
-      width: 190px;
-      bottom: -3.5rem;
-      right: -4rem;
+   .about__square,
+   .about__img{
+      width: 450px;
+      height: 450px;
    }
    /* ===== end about ===== */
 
@@ -1132,15 +1077,8 @@ body.dark-theme{
    }
    /* ===== end portfolio ===== */
 }
-@media screen and (max-width: 1022px){
-   /* ===== ABOUT ===== */
-   .about.section{
-      padding-top: 5rem;
-   }
-   /* ===== end about ===== */
-}
 
-@media screen and (min-width: 1023px){
+@media screen and (min-width: 1024px){
    /* ===== REUSABLE CSS CLASSES ===== */
    .section{
       padding-top: 8rem;
@@ -1217,6 +1155,25 @@ body.dark-theme{
    }
    /* ===== end home ===== */
 
+   /* ===== ABOUT ===== */
+   .about .section__subtitle{
+      margin-bottom: 8rem;
+   }
+   .about__container{
+      grid-column-gap: 10rem;
+   }
+   .about__img{
+      left: 5rem;
+      top: -5rem;
+   }
+   /* ===== end about ===== */
+
+   /* ===== FOOTER ===== */
+   .footer{
+      margin-bottom: 0;
+   }
+   /* ===== end footer ===== */
+
    /* ===== SCROLL UP ===== */
    .scrollup{
       right: 3rem;
@@ -1276,27 +1233,6 @@ body.dark-theme{
       top: 50%
    }
    /* ===== end contact ===== */
-
-   /* ===== FOOTER ===== */
-   .footer__container{
-      padding: 4rem 0 3rem;
-   }
-   .footer__list{
-      margin: 3rem 0;
-   }
-   .footer__list li:not(:last-child){
-      margin-right: 3rem;
-   }
-   .footer__social-link:not(:last-child){
-      margin-right: 2rem;
-   }
-   .footer__social-link{
-      font-size: 1.5rem;
-   }
-   .footer__copy{
-      margin-top: 5rem;
-   }
-   /* ===== end footer ===== */
  }
 
 /* For 2K & 4K resolutions */
